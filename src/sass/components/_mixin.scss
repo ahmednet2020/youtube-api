@@ -1,0 +1,205 @@
+// main mixin for media query size
+@mixin media($media)
+{
+	@media #{$media}
+    {
+            @content;
+    }
+}
+
+//perfix mixin
+@mixin perfix($prop, $value, $perfix:(webkit moz ms))
+{
+    @each $i in $perfix
+    {
+        -#{$i}-#{$prop}:#{$value};
+    }
+    #{$prop}:#{$value};
+}
+// appearance none mixin
+@mixin appearance()
+{
+    @include perfix(appearance,none, (webkit moz));
+}
+@mixin box-sizing($value:border-box)
+{
+    @include perfix(box-sizing,$value);
+}
+//start transform mixin
+@mixin transform-style($value:preserve-3d)
+{
+    @include perfix(transform-style, $value);
+}
+@mixin perspective($value)
+{
+    @include perfix(perspective, $value);
+}
+@mixin transform-origin($value)
+{
+    @include perfix(transform-origin, $value);
+}
+@mixin perspective-origin($value)
+{
+    @include perfix(perspective-origin, $value);
+}
+//transform mixin
+@mixin transform($value)
+{
+    @include perfix(transform, $value);
+}
+//translate mixin
+@mixin translate($x, $y)
+{
+    @include perfix(transform,translate($x, $y));
+}
+@mixin translateX($x)
+{
+    @include perfix(transform,translateX($x));
+}
+@mixin translateY($y)
+{
+    @include perfix(transform,translateY($y));
+}
+@mixin translateZ($z)
+{
+    @include perfix(transform,translateZ($z));
+}
+@mixin translate3d($x, $y, $z)
+{
+    @include perfix(transform,translate3d($x,$y,$z));
+}
+//skew mixin
+@mixin skew($x,$y)
+{
+    @include perfix(transform,skew($x,$y));
+}
+@mixin skewX($x)
+{
+    @include perfix(transform,skewX($x));
+}
+@mixin skewY($y)
+{
+    @include perfix(transform,skewY($y));
+}
+//scale mixin
+@mixin scale($value)
+{
+    @include perfix(transform,scale($value));
+}
+@mixin scaleX($x)
+{
+    @include perfix(transform,scaleX($x));
+}
+@mixin scaleY($y)
+{
+    @include perfix(transform,scaleY($y));
+}
+@mixin scaleZ($z)
+{
+    @include perfix(transform,scaleZ($z));
+}
+@mixin scale3d($x, $y, $z)
+{
+    @include perfix(transform,scale3d($x,$y,$z));
+}
+//rotate mixin
+@mixin rotate($deg)
+{
+    @include perfix(transform,rotate($deg));
+}
+@mixin rotateX($deg) 
+{
+    @include perfix(transform,rotateX($deg));
+}
+@mixin rotateY($deg)
+{
+    @include perfix(transform,rotateY($deg));
+}
+@mixin rotateZ($deg)
+{
+    @include perfix(transform,rotateZ($deg));
+}
+@mixin rotate3d($x, $y, $z, $deg)
+{
+    @include perfix(transform,rotate3d($x,$y,$z, $deg));
+}
+//box shadow
+@mixin boxshadow($x)
+{
+    @include perfix(box-shadow, $x);
+}
+//transition mixin
+@mixin transition($value)
+{
+    @include perfix(transition, $value);
+}
+//transition-dalay mixin
+@mixin transition-delay($value)
+{
+    @include perfix(transition-delay, $value);
+}
+//animation mixin
+@mixin animation($x)
+{
+    @include perfix(animation,$x, (webkit moz));
+}
+@mixin animation-delay($x)
+{
+    @include perfix(animation-delay,$x, (webkit moz));
+}
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+     }
+  @-moz-keyframes #{$name} {
+    @content;
+    }
+  @keyframes #{$name} {
+    @content;
+    } 
+}
+// placeholder color
+@mixin placeholder-color($color: red)
+{
+    &::-webkit-input-placeholder
+    {
+        color: $color;
+    }
+    &::-moz-placeholder
+    {
+        color: $color;
+    }
+    &::-ms-input-placeholder
+    {
+        color: $color;
+    }
+    &::placeholder
+    {
+        color: $color;
+    }
+}
+//border-radius
+@mixin border-radius($value)
+{
+    @include perfix(border-radius, $value,(webkit moz)); 
+}
+//scroll-behavior
+@mixin scroll-behavior($val:smooth)
+{
+    @include perfix(scroll-behavior,$val,(webkit moz));
+}
+//flex box 
+@mixin flex()
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+@mixin align-items($val)
+{
+    -webkit-box-align: $val;
+    -webkit-align-items: $val;
+    -ms-flex-align: $val;
+    align-items: $val;
+}

@@ -1,0 +1,74 @@
+//defulat var for grid
+$grid: 12;
+$grid-map: (sm,mid,lg,xlg);
+$grid-media: ($max_sm,$max_mid,$max_lg,$max_xlg);
+//grid class
+.warpper
+{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.container
+{
+    display: block;
+    width: 90%;
+    padding: 0;
+    margin:0 auto;
+}
+.row
+{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    &:after
+    {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+
+.col, %col
+{
+    display: inline-block;
+    float: $left;
+    padding: 0 1%;
+    margin: 0;
+}
+//looping all size of grid 
+@for $i from 1 through $grid
+{
+    .col-#{$i}
+    {
+        @extend %col;
+    }
+    .col-#{$i}
+    {
+        width: (100% / $grid) * $i;
+    }
+}
+@each $map in $grid-map
+{
+    @for $i from 1 through $grid 
+    {
+        .col-#{$map}-#{$i}
+        {
+            @extend %col;
+        }
+    }
+    @include media(nth($grid-media,index($grid-map, $map)))
+    {
+        @for $i from 1 through $grid
+        {
+            .col-#{$map}-#{$i}
+            {
+                width: (100% /$grid) * $i;
+            }
+        }
+    }
+}
+    

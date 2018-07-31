@@ -1,0 +1,29 @@
+//color
+$main-color: #39b3f1;
+$main-color2:#e6f8fe;
+$text-color:#3b474b;
+$white-color:#fff;
+
+//media var
+//xlg
+$min_xlg: "all and (min-width: 1200px)";
+$max_xlg: "all and (max-width: 1200px)";
+//lg
+$min_lg: "all and (min-width: 992px)";
+$max_lg: "all and (max-width: 992px)";
+//mid
+$min_mid: "all and (min-width: 768px)";
+$max_mid: "all and (max-width: 768px)";
+//sm
+$min_sm: "all and (min-width: 576px)";
+$max_sm: "all and (max-width: 575px)";
+
+//var for left and right in css
+$left:left;
+$right:right;
+//change dir lang auto
+@if ($dir == rtl)
+{
+	$left:right;
+	$right:left;
+}

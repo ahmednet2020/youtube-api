@@ -1,0 +1,55 @@
+/*=== start default style */
+*
+{
+    @include box-sizing();
+    border: 0;
+    outline: 0;
+    margin:0;
+    padding:0;
+	&:focus
+	{
+		outline:2px solid $main-color
+	}
+}
+img
+{
+    max-width: 100%;
+    vertical-align: middle;
+}
+button
+{
+    cursor: pointer;
+    display:block;
+    background: none;
+}
+a,a:hover
+{
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+dl, ol, ul
+{
+    margin: 0;
+    list-style:none;
+}
+form
+{
+     overflow: hidden;
+}
+span
+{
+    vertical-align: middle;
+}
+.container-fluid
+{
+    position:relative;
+    margin:0;
+    padding:0;
+}
+.bg-blue
+{
+    background-color:$main-color2;
+}
+//body of page animtion 
+/*=== end default style */

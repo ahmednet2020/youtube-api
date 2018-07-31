@@ -1,0 +1,9 @@
+{
+  "short_name": "youtube-api",
+  "name": "youtube-api",
+  "icons": [],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#39b3f1",
+  "background_color": "#ffffff"
+}

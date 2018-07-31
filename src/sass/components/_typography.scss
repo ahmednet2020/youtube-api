@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700|Raleway');
+%fontfamily
+{
+    font-family: 'Raleway', sans-serif;
+}
+%fontheading
+{
+    font-family: 'Open Sans', sans-serif;
+}
+html, body
+{
+    font-size: 16px;
+    height:100%;
+    @extend %fontfamily;
+}
+// p style font
+p
+{
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 0;
+    margin: 0;
+    line-height: 1.5;
+}
+//heading style font
+h1,h2,h3,h4,h5,h6,.h-style
+{
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.3;
+    text-transform: capitalize;
+    vertical-align: middle;
+    @extend %fontheading;
+}
+h1
+{
+    font-size: 2rem;
+}
+h2
+{
+    font-size: 1.8rem;
+}
+
+h3
+{
+    font-size: 1.5rem;
+}
+
+h4
+{
+    font-size: 1.2rem;
+}
+h5
+{
+    font-size: 1rem;
+}
+h6
+{
+    font-weight: normal;
+    font-size: 1rem;
+}
+.underline
+{
+    text-decoration: underline;
+}
+.nowrap
+{
+    white-space: nowrap;
+}
+/*===== end font style ===== */
