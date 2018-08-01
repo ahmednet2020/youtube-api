@@ -19,5 +19,5 @@ module.exports = function(grunt) {
     watch
 })
   //run Tasks
-  grunt.registerTask('default', ['clean','browserify','uglify','sass','postcss','watch']);
+  grunt.registerTask('default', ['clean','browserify','sass','postcss','watch']);
 };

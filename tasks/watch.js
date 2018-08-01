@@ -1,7 +1,7 @@
 module.exports = {
     js: {
 	    files: './src/**/*.js',
-	    tasks: ['clean:js', 'browserify', 'uglify'],
+	    tasks: ['clean:js', 'browserify'],
 	    options: {
 	      debounceDelay: 250,
 	    },
