@@ -3,7 +3,7 @@ module.exports = {
     options: {
         implementation: sass,
         sourceMap: true,
-        outputStyle:"compressed"
+        //outputStyle:"compressed"
     },
     dist: {
         files: {

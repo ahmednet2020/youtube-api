@@ -6,7 +6,7 @@
     outline: 0;
     margin:0;
     padding:0;
-	&:focus
+	&:focusring 
 	{
 		outline:2px solid $main-color
 	}
@@ -50,6 +50,14 @@ span
 .bg-blue
 {
     background-color:$main-color2;
+}
+.container
+{
+    display: block;
+    width: 90%;
+    max-width: 1140px;
+    padding: 0;
+    margin:0 auto;
 }
 //body of page animtion 
 /*=== end default style */

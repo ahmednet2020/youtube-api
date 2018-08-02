@@ -1,0 +1,18 @@
+nav
+{
+	padding: 1em;
+	background-color:$text-color;
+	color:$white-color;
+	line-height: 1;
+	.container
+	{
+		display: flex;
+	    align-items: baseline;
+	}
+	.brand
+	{
+		text-transform: uppercase;
+	}
+	@import './navlist',
+			'./navtoggel';
+}

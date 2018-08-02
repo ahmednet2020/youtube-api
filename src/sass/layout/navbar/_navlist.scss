@@ -1,0 +1,35 @@
+%navLink
+{
+	background-color:$main-color;
+}
+.nav-list
+{    
+	display: flex;
+	justify-content: left;
+	transform: translateX(200%);
+	will-change: transform;
+    transition:transform 0.3s ease-in-out;
+}
+.nav-item
+{
+    &.active
+	{
+		.nav-link
+		{
+			@extend %navLink;
+		}
+	}
+}
+.nav-link
+{
+	margin: 0 0.5em;
+    padding: 0.5em 1em;
+    display: block;
+    border-radius: 15px;
+	text-transform: capitalize;
+    transition:background 0.3s ease-in-out;
+    &:hover
+    {
+    	@extend %navLink;
+    }
+}
