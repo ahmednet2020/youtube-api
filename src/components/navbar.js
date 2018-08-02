@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Navtoggel from './navtoggel';
+import { Link } from "react-router-dom";
 const Navbar = (props) => (
 	<nav>
 		<div className="container">
-			<a className="brand h-style" href="/">heros</a>
+			<Link className="brand h-style" to="/404">heros</Link>
 			<Navtoggel/>
 		</div>
 	</nav>
