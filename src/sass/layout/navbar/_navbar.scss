@@ -1,18 +1,29 @@
-nav
+.navbar
 {
-	padding: 1em;
-	background-color:$text-color;
-	color:$white-color;
-	line-height: 1;
-	.container
-	{
-		display: flex;
-	    align-items: baseline;
-	}
-	.brand
-	{
-		text-transform: uppercase;
-	}
-	@import './navlist',
-			'./navtoggel';
+	display: flex;
+    justify-content: flex-end;
+    flex: 1 0 auto;
+    overflow: hidden;
+    &.show
+    {
+    	.nav-list
+    	{
+    		transform: translateX(0);
+    	}
+    	.line
+    	{
+    		opacity: 0;
+    	}
+    	.line-toggel
+		{
+	    	&:before
+	    	{
+	    		transform: rotate(-45deg) translateX(-8px);
+	    	}
+	    	&:after
+	    	{
+	    		    transform: rotate(45deg) translateX(-8px);
+	    	}
+		}
+    }
 }

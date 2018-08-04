@@ -4,6 +4,7 @@ const clean = require('./tasks/clean');
 const postcss = require('./tasks/postcss');
 const sass = require('./tasks/sass');
 const watch = require('./tasks/watch');
+const babel = require('./tasks/babel');
 'use strict';  
 module.exports = function(grunt) {
   //load all grunt plugin
@@ -16,6 +17,7 @@ module.exports = function(grunt) {
     clean,
     postcss,
     sass,
+    babel,
     watch
 })
   //run Tasks

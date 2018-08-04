@@ -1,0 +1,20 @@
+nav
+{
+	padding: 1em;
+	background-color:$text-color;
+	color:$white-color;
+	line-height: 1;
+	overflow: hidden;
+	.container
+	{
+		display: flex;
+	    align-items: center;
+	}
+	.brand
+	{
+		text-transform: uppercase;
+	}
+	@import './navbar/navbar',
+			'./navbar/navlist',
+			'./navbar/navtoggel';
+}

@@ -6,6 +6,14 @@ module.exports = {
 	      debounceDelay: 250,
 	    },
 	},
+	worker:
+	{
+		files: './worker/cashe.js',
+	    tasks: ['babel'],
+	    options: {
+	      debounceDelay: 250,
+	    },
+	},
 	css:{
 
 		files: './src/sass/**/*.scss',

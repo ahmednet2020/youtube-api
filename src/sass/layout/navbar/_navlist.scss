@@ -6,7 +6,7 @@
 {    
 	display: flex;
 	justify-content: left;
-	transform: translateX(200%);
+	transform: translateX(150%);
 	will-change: transform;
     transition:transform 0.3s ease-in-out;
 }

@@ -1,4 +1,15 @@
 //media minisize 992px
 @include media($min_lg)
 {
+	nav
+	{
+		.nav-list
+		{
+			order: 1;
+		}
+		.nav-toggel
+		{
+			order: 2;
+		}
+	}
 }

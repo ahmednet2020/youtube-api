@@ -1,4 +1,27 @@
 //media maxsize 992px
 @include media($max_lg)
 {
+	nav
+	{
+		.brand,
+		.nav-toggel
+		{
+			position: relative;
+    		z-index: 99;
+		}
+		.nav-list
+		{
+			position: fixed;
+		    top: 0;
+		    left: 0;
+		    bottom: 0;
+		    right: 0;
+		    flex-direction: column;
+		    background-color: $text-color;
+		    padding: 5em 1em 1em;
+		    z-index: 9;
+		    transform: translateX(-100%);
+		    overflow: auto;
+		}
+	}
 }

@@ -2,16 +2,17 @@
 //dirction page
 $dir:ltr;
 //components & mixin
-@import './components/_var',
-		'./components/_mixin',
-		'./components/_normalize',
-		'./components/_typography';
+@import './components/var',
+		'./components/mixin',
+		'./components/normalize',
+		'./components/typography';
 //layout
-@import './layout/_header',
-		'./layout/_main',
-		'./layout/_footer';
+@import './layout/header',
+		'./layout/nav',
+		'./layout/main',
+		'./layout/footer';
 //form
-@import './form/_form',
-		'./form/_button';
+@import './form/form',
+		'./form/button';
 //media
-@import './media/_media';
+@import './media/media';

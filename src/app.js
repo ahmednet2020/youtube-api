@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+//service-workers
+import serviceWorkers from '../worker/workers';
 //react router
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 //import compponents
@@ -31,3 +33,4 @@ class App extends React.Component
 
 //render jsx
 ReactDOM.render(<App />, document.getElementById('app'));
+serviceWorkers();
