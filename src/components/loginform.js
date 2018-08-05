@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-
+import { Prompt } from "react-router-dom";
 export default class LoginFom extends Component {
+	constructor(props)
+	{
+		super(props);
+		this.state = {isBlocking:true};
+	}
 	Submit(e)
 	{
 		e.preventDefault();
@@ -14,7 +19,6 @@ export default class LoginFom extends Component {
 		}
 	}
 	render() {
-		console.log();
 		return (
 			<form onSubmit={this.Submit.bind(this)}>
 				<div className="username">
@@ -30,6 +34,7 @@ export default class LoginFom extends Component {
 						<input type="submit" name="login" value="login" className="h-style"/>
 					</label>
 				</div>
+				<Prompt when={this.state.isBlocking} message={location => `Are you sure you want to go to ${location.pathname}`}/>
 			</form>
 		);
 	}
