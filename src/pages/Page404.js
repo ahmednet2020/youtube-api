@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-const Page404 = ({location}) => {
-	return (
-		<main>
-			<section className="sign">
-				<div className="container">
-					<h1>no thing here {location.pathname}</h1>
-					<Link to="/">Home</Link>
-				</div>
-			</section>
-		</main>
-	);
+
+export default class Page404 extends Component {
+	constructor(props)
+	{
+		super(props);
+		preload().start();
+	}
+	render() {
+		return (
+			<main>
+				<section className="sign">
+					<div className="container">
+						<h1>no thing here {this.props.location.pathname}</h1>
+						<Link to="/">Home</Link>
+					</div>
+				</section>
+			</main>
+		);
+	}
+	componentDidMount()
+	{
+		preload().end();
+	}
 }
-export default Page404;

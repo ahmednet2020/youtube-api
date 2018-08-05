@@ -2,20 +2,32 @@ import React, { Component } from 'react';
 //components
 import LoginFom from '../components/loginform';
 import Loginservices from '../components/loginservices';
-const Login = ({singin}) => {
-	return (
-		<main>
-			<section className="sign">
-				<div className="container">
-					<div className="sign-box">
-						<h1> sign in</h1>
-						<LoginFom singin={singin}/>
-						<hr/>
-						<Loginservices />
+import preload from '../components/preload';
+
+export default class Login extends Component {
+	constructor(props)
+	{
+		super(props);
+		preload().start();
+	}
+	render() {
+		return (
+			<main>
+				<section className="sign">
+					<div className="container">
+						<div className="sign-box">
+							<h1> sign in</h1>
+							<LoginFom singin={this.props.singin}/>
+							<hr/>
+							<Loginservices />
+						</div>
 					</div>
-				</div>
-			</section>
-		</main>
-	);
+				</section>
+			</main>
+		);
+	}
+	componentDidMount()
+	{
+		preload().end();
+	}
 }
-export default Login;

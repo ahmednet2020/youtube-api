@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 //import compponents
 import Navbar from './components/navbar';
 import Private from './components/private';
+import preload from './components/preload';
 //import pages
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -44,11 +45,15 @@ class App extends React.Component
 						<Route path="/login" render={() =>this.state.login? <Redirect to="/"/> : <Login singin={this.Signin}/> } />
 						<Private path="/chanel" auth={this.state.login} component={Chanel} />
 						<Route path="/404" component={Page404}/>
-						<Route strict render={() => <Redirect to="/404"/>} />
+						<Route render={() => <Redirect to="/404"/>} />
 					</Switch>
 				</React.Fragment>
 			</Router>
 		)
+	}
+	componentDidMount()
+	{
+		preload().end();	
 	}
 }
 
