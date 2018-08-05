@@ -6,9 +6,30 @@ import serviceWorkers from '../worker/workers';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 //import compponents
 import Navbar from './components/navbar';
+import Private from './components/private';
+//import pages
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Chanel from './pages/Chanel';
+import Page404 from './pages/Page404';
 //app class
 class App extends React.Component
 {
+	constructor(props)
+	{
+		super(props);
+		this.state = {login:false};
+		this.Signin = this.Signin.bind(this);
+		this.Signout = this.Signout.bind(this);
+	}
+	Signin()
+	{
+		this.setState({login:true});
+	}
+	Signout()
+	{
+		this.setState({login:false});
+	}
 	render()
 	{
 		return (
@@ -19,11 +40,11 @@ class App extends React.Component
 						<Route path="/" component={Navbar}/>
 					</Switch>
 					<Switch>
-						<Route exact path="/" render={() => <h1> home </h1>}/>
-						<Route path="/login" render={() =>  <h1> login </h1>}/>
-						<Route path="/chanel" render={() => <h1> chanel </h1>}/>
-						<Route path="/404" render={({location}) => <h1>no thing here {location.pathname}</h1>}/>
-						<Route render={() => <Redirect to="/404"/>} />
+						<Route exact path="/" component={Home}/>
+						<Route path="/login" render={() =>this.state.login? <Redirect to="/"/> : <Login singin={this.Signin}/> } />
+						<Private path="/chanel" auth={this.state.login} component={Chanel} />
+						<Route path="/404" component={Page404}/>
+						<Route strict render={() => <Redirect to="/404"/>} />
 					</Switch>
 				</React.Fragment>
 			</Router>

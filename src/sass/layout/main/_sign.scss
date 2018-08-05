@@ -1,0 +1,53 @@
+.sign-box
+{
+	display: flex;
+	flex-direction: column;
+	padding: 50px;
+	width: 50%;
+	margin: auto;
+	box-shadow: 0 0 2px 2px rgba($text-color,0.5);
+	hr
+	{
+		border: 1px solid rgba($text-color,0.5);
+	    width: 100%;
+	    display: block;
+	    margin: 1em 0;
+	}
+}
+.btn-services
+{
+	display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+	button
+	{
+	    flex: 0 0 auto;
+	    padding: 0.5em 1em;
+	    font-size: 0.8em;
+	    text-transform: uppercase;
+	    border: 1px solid rgba($text-color,0.5);
+	    transition: box-shadow 0.2s ease-in;
+	    &:hover,
+	    &:focus
+	    {
+	    	box-shadow: 2px 2px 2px rgba($text-color,0.5);
+	    }
+	    &[aria-label="facebook"]
+	    {
+	    	color: #3c5b9a;
+	    }
+	    &[aria-label="google"]
+	    {
+	    	color: #fbbc05;
+	    }
+	    &[aria-label="twitter"]
+	    {
+	    	color: #02b3e4;
+	    }
+	}
+	.icon-services
+	{
+		margin-right: 10px;
+    	font-size: 200%;
+	}
+}

@@ -185,6 +185,113 @@ nav {
       transition: transform 0.3s ease-in-out, opacity 0.3s ease-out;
       transition: transform 0.3s ease-in-out, opacity 0.3s ease-out, -webkit-transform 0.3s ease-in-out; }
 
+.sign-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 50px;
+  width: 50%;
+  margin: auto;
+  -webkit-box-shadow: 0 0 2px 2px rgba(59, 71, 75, 0.5);
+          box-shadow: 0 0 2px 2px rgba(59, 71, 75, 0.5); }
+  .sign-box hr {
+    border: 1px solid rgba(59, 71, 75, 0.5);
+    width: 100%;
+    display: block;
+    margin: 1em 0; }
+
+.btn-services {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1em; }
+  .btn-services button {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    border: 1px solid rgba(59, 71, 75, 0.5);
+    -webkit-transition: -webkit-box-shadow 0.2s ease-in;
+    transition: -webkit-box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in, -webkit-box-shadow 0.2s ease-in; }
+    .btn-services button:hover, .btn-services button:focus {
+      -webkit-box-shadow: 2px 2px 2px rgba(59, 71, 75, 0.5);
+              box-shadow: 2px 2px 2px rgba(59, 71, 75, 0.5); }
+    .btn-services button[aria-label="facebook"] {
+      color: #3c5b9a; }
+    .btn-services button[aria-label="google"] {
+      color: #fbbc05; }
+    .btn-services button[aria-label="twitter"] {
+      color: #02b3e4; }
+  .btn-services .icon-services {
+    margin-right: 10px;
+    font-size: 200%; }
+
+.sign {
+  padding: 3em 0; }
+  .sign .username,
+  .sign .password {
+    position: relative;
+    padding: 1em 0;
+    margin-top: 1em; }
+    .sign .username label,
+    .sign .password label {
+      position: absolute;
+      top: 1em;
+      left: 0;
+      color: rgba(59, 71, 75, 0.5);
+      will-change: top;
+      -webkit-transition: top 0.3s ease-in-out;
+      transition: top 0.3s ease-in-out;
+      text-transform: capitalize; }
+    .sign .username input,
+    .sign .password input {
+      width: 100%;
+      border-bottom: 1px solid rgba(59, 71, 75, 0.5); }
+      .sign .username input:hover, .sign .username input:focus, .sign .username input:valid,
+      .sign .password input:hover,
+      .sign .password input:focus,
+      .sign .password input:valid {
+        border-bottom: 1px solid #39b3f1; }
+        .sign .username input:hover ~ label, .sign .username input:focus ~ label, .sign .username input:valid ~ label,
+        .sign .password input:hover ~ label,
+        .sign .password input:focus ~ label,
+        .sign .password input:valid ~ label {
+          top: -0.3em;
+          color: #39b3f1; }
+  .sign .submit {
+    padding: 1em 0;
+    margin-top: 1em; }
+    .sign .submit label {
+      display: block;
+      width: 50%; }
+    .sign .submit input {
+      border-radius: 5px;
+      width: 100%;
+      padding: 1em 0;
+      cursor: pointer;
+      background-color: #3b474b;
+      color: #fff;
+      -webkit-transition: background 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+      transition: background 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+      transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+      transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+      text-transform: uppercase; }
+      .sign .submit input:hover, .sign .submit input:focus {
+        -webkit-box-shadow: 0 0 2px 2px rgba(57, 179, 241, 0.5);
+                box-shadow: 0 0 2px 2px rgba(57, 179, 241, 0.5);
+        background-color: #39b3f1; }
+
 /* start media style */
 @media all and (max-width: 992px) {
   nav .brand,

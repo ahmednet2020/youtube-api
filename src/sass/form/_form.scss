@@ -1,0 +1,67 @@
+.sign
+{
+	padding: 3em 0;
+	form
+	{
+	}
+	.username,
+	.password
+	{
+		position: relative;
+		padding: 1em 0;
+    	margin-top: 1em;
+		label
+		{
+			position: absolute;
+		    top: 1em;
+		    left: 0;
+		    color: rgba($text-color,0.5);
+		    will-change: top;
+   			transition:top 0.3s ease-in-out;
+   			text-transform: capitalize;
+		}
+		input
+		{
+			width: 100%;
+			border-bottom: 1px solid rgba($text-color,0.5);
+			&:hover,
+			&:focus,
+			&:valid
+			{
+				border-bottom: 1px solid $main-color;
+				& ~ label
+				{
+					top: -0.3em;
+		    		color: $main-color;
+				}
+			}
+		}
+	}
+	.submit
+	{
+		padding: 1em 0;
+    	margin-top: 1em;
+		label
+		{
+			display: block;
+    		width: 50%;
+		}
+		input
+		{
+			border-radius: 5px;
+		    width: 100%;
+		    padding: 1em 0;
+		    cursor: pointer;
+		    background-color: $text-color;
+		    color: $white-color;
+   			transition:box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+   			text-transform: uppercase;
+		    &:hover,
+		    &:focus
+		    {
+    			box-shadow: 0 0 2px 2px rgba($main-color,0.5);
+    			background-color: $main-color;
+		    }
+		}
+	}
+}
