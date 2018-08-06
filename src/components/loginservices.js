@@ -10,7 +10,7 @@ export default class Loginservices extends Component {
 						<span className="icon-services"><i className="fab fa-facebook" aria-hidden="true"></i></span>
 						<span className="name-services">facebook</span>
 					</button>
-					<button type="button" aria-label="google">
+					<button type="button" aria-label="google" onClick={this.props.singin}>
 						<span className="icon-services"><i className="fab fa-google" aria-hidden="true"></i></span>
 						<span className="name-services">google</span>
 					</button>

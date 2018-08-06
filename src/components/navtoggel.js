@@ -17,7 +17,7 @@ export default class Navtoggel extends Component
 	}
 	render()
 	{
-		const { children, location } = this.props;
+		const { children, location, on } = this.props;
 		return (
 			<div className={`navbar ${this.state.on? "show": ""}`} ref={(node) => this.nav = node}>
 				<button type="button" className="nav-toggel" onClick={this.toggelButton} aria-controls="navlist" aria-expanded={this.state.on? "true":"false"} aria-label="Toggle menu">
@@ -26,7 +26,7 @@ export default class Navtoggel extends Component
 						<span className="line"></span>
 					</span>
 				</button>
-				<Navlist on={this.state.on} location={location}/>
+				<Navlist on={this.state.on} location={location} sing={on}/>
 			</div>
 		);
 	}

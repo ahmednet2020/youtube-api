@@ -11,12 +11,12 @@ export default class LoginFom extends Component {
 		e.preventDefault();
 		let username = e.target.username.value === "admin";
 		let password = e.target.password.value === "123456";
-		if(username && password)
-		{
-			this.props.singin();
-		} else {
-			console.log(false);
-		}
+		// if(username && password)
+		// {
+		// 	this.props.singin();
+		// } else {
+		// 	console.log(false);
+		// }
 	}
 	render() {
 		return (

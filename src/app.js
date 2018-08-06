@@ -13,6 +13,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Chanel from './pages/Chanel';
 import Page404 from './pages/Page404';
+//api key
+import { CLIENT_ID, DISCOVERY_DOCS, SCOPES } from './apiConfig';
 //app class
 class App extends React.Component
 {
@@ -25,11 +27,20 @@ class App extends React.Component
 	}
 	Signin()
 	{
-		this.setState({login:true});
+		 gapi.auth2.getAuthInstance().signIn();
 	}
 	Signout()
 	{
-		this.setState({login:false});
+		gapi.auth2.getAuthInstance().signOut();
+	}
+	getChannel(forUsername)
+	{
+		gapi.client.youtube.channels.list({
+          part: 'snippet,contentDetails,statistics',
+          forUsername,
+        }).then((response) => {
+          	console.log(response);
+        });
 	}
 	render()
 	{
@@ -38,11 +49,12 @@ class App extends React.Component
 				<React.Fragment>
 					<Switch>
 						<Route path="/404" render={()=> <span></span>}/> // to remove nav in 404 page
-						<Route path="/" component={Navbar}/>
+						<Route path="/" render={(props)=><Navbar {...props} on={this.state.login}/>}/>
 					</Switch>
 					<Switch>
 						<Route exact path="/" component={Home}/>
-						<Route path="/login" render={() =>this.state.login? <Redirect to="/"/> : <Login singin={this.Signin}/> } />
+						<Route exact path="/logout" render={()=> this.state.login?  <button type="button" onClick={this.Signout}>logout</button> : <Redirect to="/login"/>}/>
+						<Route path="/login" render={() => this.state.login? <Redirect to="/logout"/> : <Login singin={this.Signin}/> } />
 						<Private path="/chanel" auth={this.state.login} component={Chanel} />
 						<Route path="/404" component={Page404}/>
 						<Route render={() => <Redirect to="/404"/>} />
@@ -53,8 +65,42 @@ class App extends React.Component
 	}
 	componentDidMount()
 	{
-		preload().end();	
-	}
+       // On load, called to load the auth2 library and API client library.
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+      handleClientLoad();
+       /**
+       *  Called when the signed in status changes, to update the UI
+       *  appropriately. After a sign-in, the API is called.
+       */
+      const updateSigninStatus = (isSignedIn) => {
+        if (isSignedIn) {
+        	this.setState({login:true});
+          	this.getChannel('OsamaElzero');
+          	console.log("login");
+        } else {
+        	this.setState({login:false});
+          	console.log("logout");
+        }
+      }
+      /**
+       *  Initializes the API client library and sets up sign-in state
+       *  listeners.
+       */
+      function initClient() {
+        gapi.client.init({
+          discoveryDocs: DISCOVERY_DOCS,
+          clientId: CLIENT_ID,
+          scope: SCOPES
+        }).then(function () {
+          // Listen for sign-in state changes.
+          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+          // Handle the initial sign-in state.
+          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        });
+      }
+  }
 }
 
 //render jsx
