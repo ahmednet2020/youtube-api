@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
-//components
-import preload from '../components/preload';
-
-export default class Home extends Component {
-	constructor(props)
-	{
-		super(props);
-		preload().start();
-	}
-	render() {
-		console.log(this.props.channel);
-		return (
+import Playlist from '../components/playlist';
+const Home = ({playlist}) => (
 			<main>
 				<section className="home">
 					<div className="container">
-						<h1>home page</h1>
+						{Array.isArray(playlist)? (
+								<Playlist playlist={playlist} /> 
+							) : (
+								<div>{playlist}</div>	
+							)}
 					</div>
 				</section>
 			</main>
 		);
-	}
-	componentDidMount()
-	{
-		preload().end();
-	}
-}
+export default Home;

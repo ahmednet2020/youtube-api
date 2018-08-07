@@ -22,7 +22,7 @@ class App extends React.Component
 	constructor(props)
 	{
 		super(props);
-		this.state = {login:false,channel:''};
+		this.state = {login:false, channel:'', playlist:'...loading'};
 		this.Signin = this.Signin.bind(this);
 		this.Signout = this.Signout.bind(this);
 		this.getChannel = this.getChannel.bind(this);
@@ -58,9 +58,9 @@ class App extends React.Component
 						<Route path="/" render={(props)=><Navbar {...props} on={this.state.login}/>}/>
 					</Switch>
 					<Switch>
-						<Route exact path="/" render={(props) => <Home {...props} channel={this.state.channel} />}/>
-						<Route exact path="/logout" render={()=> this.state.login?  <Logout Signout={this.Signout}/> : <Redirect to="/login"/>}/>
-						<Route path="/login" render={() => this.state.login? <Redirect to="/logout"/> : <Login singin={this.Signin}/> } />
+						<Route exact path="/" render={(props) => <Home {...props} playlist={this.state.playlist} />}/>
+						<Route exact path="/logout" render={()=> this.state.login?  <Logout Signout={this.Signout}/> : <Redirect to="/"/>}/>
+						<Route path="/login" render={() => this.state.login? <Redirect to="/"/> : <Login singin={this.Signin}/> } />
 						<Private path="/chanel" auth={this.state.login} getChannel={this.getChannel} channel={this.state.channel} component={Chanel} />
 						<Route path="/404" component={Page404}/>
 						<Route render={() => <Redirect to="/404"/>} />
@@ -83,12 +83,25 @@ class App extends React.Component
       const updateSigninStatus = (isSignedIn) => {
         if (isSignedIn) {
         	this.setState({login:true});
-          	this.getChannel('OsamaElzero');
+          	this.getChannel('GoogleDevelopers');
           	console.log("login");
         } else {
         	this.setState({login:false});
           	console.log("logout");
         }
+      }
+      const defualtChannelList = () => {
+  		//defualt channel date
+		let requestOptions = {
+			playlistId:"UU_x5XG1OV2P6uZZ5FSM9Ttw",
+			part: 'snippet',
+			maxResults: 10
+		};
+		//defualt channel list in home page
+		let request = gapi.client.youtube.playlistItems.list(requestOptions);
+			request.execute((response) => {
+			this.setState({playlist:response.items});
+		});
       }
       /**
        *  Initializes the API client library and sets up sign-in state
@@ -100,12 +113,14 @@ class App extends React.Component
           clientId: CLIENT_ID,
           scope: SCOPES
         }).then(function () {
-          // Listen for sign-in state changes.
-          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-          // Handle the initial sign-in state.
-          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-        });
+			// Listen for sign-in state changes.
+			gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+			// Handle the initial sign-in state.
+			updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+			defualtChannelList();
+		});
       }
+  	preload().end();
   }
 }
 

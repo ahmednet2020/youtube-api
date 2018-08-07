@@ -1,0 +1,17 @@
+.play-list
+{
+    margin-top: 2em;
+}
+.vedio-list
+{
+	display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.vedio-item
+{
+	flex: 0 0 30%;
+    overflow: hidden;
+    margin-bottom: 2em;
+}

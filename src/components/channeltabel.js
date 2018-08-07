@@ -1,9 +1,6 @@
 import React, { Component,Fragment } from 'react';
 
-export default class ChannelTabel extends Component {
-	render() {
-		let channel = this.props.channel;
-		return (
+const ChannelTabel = ({channel}) => (
 			<div className="channel-tabel">
 				{ channel? ( 
 						<Fragment>
@@ -40,5 +37,4 @@ export default class ChannelTabel extends Component {
 				}
 			</div>
 		);
-	}
-}
+export default ChannelTabel;
