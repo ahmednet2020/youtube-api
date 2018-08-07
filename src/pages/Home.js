@@ -9,9 +9,10 @@ export default class Home extends Component {
 		preload().start();
 	}
 	render() {
+		console.log(this.props.channel);
 		return (
 			<main>
-				<section className="sign">
+				<section className="home">
 					<div className="container">
 						<h1>home page</h1>
 					</div>

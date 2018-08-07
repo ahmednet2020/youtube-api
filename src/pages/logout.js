@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+//components
 import preload from '../components/preload';
 
-export default class Page404 extends Component {
+export default class Logout extends Component {
 	constructor(props)
 	{
 		super(props);
@@ -11,10 +11,12 @@ export default class Page404 extends Component {
 	render() {
 		return (
 			<main>
-				<section className="page404">
+				<section className="logout">
 					<div className="container">
-						<h1>no thing here {this.props.location.pathname}</h1>
-						<Link to="/">Home</Link>
+						<div className="logout-box">
+							<h1>logout</h1>
+							<button type="button" onClick={this.props.Signout} className="h-style">logout</button>
+						</div>
 					</div>
 				</section>
 			</main>

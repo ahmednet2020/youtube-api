@@ -1,11 +1,6 @@
-.sign
+form
 {
-	padding: 3em 0;
-	form
-	{
-	}
-	.username,
-	.password
+	.input
 	{
 		position: relative;
 		padding: 1em 0;
@@ -45,6 +40,7 @@
 		{
 			display: block;
     		width: 50%;
+    		margin: auto;
 		}
 		input
 		{

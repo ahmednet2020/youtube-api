@@ -1,5 +1,5 @@
 'use strict';
-const CACHE_NAME = 'my-site-cache-v1';
+const CACHE_NAME = 'v1.0.1';
 const urlsToCache = [
   './index.html',
   './css/main.min.css',
@@ -18,5 +18,20 @@ self.addEventListener('install',(e) => {
       .catch((err)=> {
       	console.log(`open cashes erro: ${err}`)
       })
+  );
+});
+// active event
+self.addEventListener('activate', e => {
+  // delete any old caches
+  e.waitUntil(
+    caches.keys().then(keys => Promise.all(
+      keys.map( key => (key === CACHE_NAME ? key:caches.delete(key)) )
+    ))
+    .then(() => {
+      console.log('remove the old cashe done');
+    })
+    .catch(() => {
+      console.log('remove old caches faild');
+    })
   );
 });

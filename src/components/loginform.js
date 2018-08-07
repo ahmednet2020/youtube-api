@@ -11,21 +11,21 @@ export default class LoginFom extends Component {
 		e.preventDefault();
 		let username = e.target.username.value === "admin";
 		let password = e.target.password.value === "123456";
-		// if(username && password)
-		// {
-		// 	this.props.singin();
-		// } else {
-		// 	console.log(false);
-		// }
+		if(username && password)
+		{
+			this.props.singin(true);
+		} else {
+			console.log(false);
+		}
 	}
 	render() {
 		return (
 			<form onSubmit={this.Submit.bind(this)}>
-				<div className="username">
+				<div className="username input">
 					<input type="text" name="username" id="username" required />
 					<label htmlFor="username" className="h-style">user name</label>
 				</div>
-				<div className="password">
+				<div className="password input">
 					<input type="password" name="password" id="password" required />
 					<label htmlFor="password" className="h-style">password</label>
 				</div>

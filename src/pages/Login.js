@@ -17,7 +17,7 @@ export default class Login extends Component {
 					<div className="container">
 						<div className="sign-box">
 							<h1> sign in</h1>
-							<LoginFom />
+							<LoginFom singin={this.props.singin} />
 							<hr/>
 							<Loginservices singin={this.props.singin}/>
 						</div>

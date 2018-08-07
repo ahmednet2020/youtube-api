@@ -1,0 +1,64 @@
+.chanel
+{
+    padding: 3em 0;
+    text-align: center;
+    overflow: hidden;
+    form
+    {
+		width: 50%;
+    	margin: auto;
+    }
+    .tabs
+    {
+    	margin: 1em 0;
+    	overflow: hidden;
+    	a
+    	{
+    		margin: 0 1em;
+		    padding: 1em 2em;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    background-color: $text-color;
+		    color: $white-color;
+		    display: inline-block;
+    	}
+    }
+}
+.channel-tabel
+{
+	table
+	{
+		margin: 2em auto;
+    	box-shadow: 0 0 20px $text-color;
+    	background-color: $main-color;
+    	color: $white-color;
+	}
+	td, th, table
+	{
+	    border: 2px solid $text-color;
+	    border-collapse: collapse;
+	    padding: 10px;
+	    text-transform: capitalize;
+	    line-height: 1.5;
+	}
+	.visit
+	{
+		display: inline-block;
+		border-radius: 5px;
+	    padding: 1em 2em;
+	    cursor: pointer;
+	    background-color: $text-color;
+	    color: $white-color;
+	    text-transform: uppercase;
+	    transition: background 0.3s ease-in-out;
+	    &:hover,
+	    &:focus
+	    {
+		    background-color: $main-color;
+	    }
+	}
+	.description
+	{
+		padding: 1em;
+	}
+}
