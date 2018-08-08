@@ -5,5 +5,7 @@
       // Authorization scopes required by the API. If using multiple scopes,
       // separated them with spaces.
       const SCOPES = 'https://www.googleapis.com/auth/youtube.readonly';
+      //api key
+      const Key = "AIzaSyC6no7YChEue0dOnbXkia7XlCLvz6X7EUg";
 
-      export {CLIENT_ID, DISCOVERY_DOCS, SCOPES};
+      export {CLIENT_ID, DISCOVERY_DOCS, SCOPES, Key};

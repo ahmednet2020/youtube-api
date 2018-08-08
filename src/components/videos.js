@@ -5,6 +5,7 @@ export default class Videos extends Component {
 	{
 		super(props);
 		this.state = {playlist:'...loading'};
+		this.mount = false;// memory leak fix,
 	}
 	render() {
 		if(Array.isArray(this.state.playlist))
@@ -28,7 +29,11 @@ export default class Videos extends Component {
 		  };
 		let request = gapi.client.youtube.playlistItems.list(requestOptions);
 		request.execute((response) => {
-			this.setState({playlist:response.items});
+			if(this.mount) {
+				this.setState({playlist:response.items});
+			} else {
+				console.log("Unmount");//test 
+			}
 		})
 	}
 	componentDidUpdate()
@@ -37,6 +42,10 @@ export default class Videos extends Component {
 	}
 	componentDidMount()
 	{
+		this.mount = true;
 		this.playlistRequest()
+	}
+	componentWillUnmount() {
+		this.mount = false;
 	}
 }

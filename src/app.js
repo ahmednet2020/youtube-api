@@ -15,7 +15,7 @@ import Logout from './pages/Logout';
 import Chanel from './pages/Chanel';
 import Page404 from './pages/Page404';
 //api key
-import { CLIENT_ID, DISCOVERY_DOCS, SCOPES } from './apiConfig';
+import { CLIENT_ID, DISCOVERY_DOCS, SCOPES, Key } from './apiConfig';
 //app class
 class App extends React.Component
 {
@@ -95,14 +95,15 @@ class App extends React.Component
 		let requestOptions = {
 			playlistId:"UU_x5XG1OV2P6uZZ5FSM9Ttw",
 			part: 'snippet',
-			maxResults: 10
+			maxResults: 10,
+			key:Key
 		};
 		//defualt channel list in home page
 		let request = gapi.client.youtube.playlistItems.list(requestOptions);
 			request.execute((response) => {
 			this.setState({playlist:response.items});
 		});
-      }
+      };
       /**
        *  Initializes the API client library and sets up sign-in state
        *  listeners.
@@ -113,11 +114,12 @@ class App extends React.Component
           clientId: CLIENT_ID,
           scope: SCOPES
         }).then(function () {
+        	//run default list in home page
+	  		defualtChannelList();
 			// Listen for sign-in state changes.
 			gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 			// Handle the initial sign-in state.
 			updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-			defualtChannelList();
 		});
       }
   	preload().end();
