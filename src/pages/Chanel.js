@@ -5,6 +5,20 @@ import preload from '../components/preload';
 import SearchInput from '../components/searchinput';
 import ChannelTabel from '../components/channeltabel';
 import Videos from '../components/videos';
+
+let RouteMap = [
+	{
+		To:'channelinfo',
+		exact:true,
+		Render:ChannelTabel
+	},
+	{
+		To:'videos',
+		exact:true,
+		Render:Videos
+	}
+];
+
 export default class Chanel extends Component {
 	constructor(props)
 	{
@@ -20,12 +34,20 @@ export default class Chanel extends Component {
 						<h1>search for channels</h1>
 						<SearchInput getChannel={this.props.getChannel}/>
 						<div className="tabs">
-							<Link to={`${path}/channelinfo`} className="h-style">channelinfo</Link>
-							<Link to={`${path}/videos`} className="h-style">videos</Link>
+						{
+							RouteMap.map(({To}) => (
+								<Link to={`${path}/${To}`} className="h-style" key={To}>
+									{To}
+								</Link>
+							))
+						}
 						</div>
 						<Switch>
-							<Route exact path={`${path}/channelinfo`} render={(props) =><ChannelTabel {...props} channel={this.props.channel}/> }/>
-							<Route exact path={`${path}/videos`} render={(props) => <Videos {...props} channel={this.props.channel} />  }/>
+						{
+							RouteMap.map(({To, exact, Render}) => (
+								<Route key={To} exact={exact} path={`${path}/${To}`} render={ (props) => <Render {...props} channel={this.props.channel} /> }/>
+							))
+						}
 						</Switch>
 					</div>
 				</section>

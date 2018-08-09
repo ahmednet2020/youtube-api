@@ -23,5 +23,5 @@ module.exports = function(grunt) {
   //run Tasks
   grunt.registerTask('default', ['clean','browserify','sass','postcss','watch']);
   //build Tasks
-  grunt.registerTask('build', ['clean','browserify','sass','postcss','uglify']);
+  grunt.registerTask('build', ['clean','browserify','sass','postcss','babel','uglify']);
 };
